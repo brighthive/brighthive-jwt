@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: brighthive-jwt
+Version: 0.0.0
+Summary: Brighthive Library for JWT
+Home-page: UNKNOWN
+Author: Brighthive
+Author-email: engineering@brighthive.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+UNKNOWN
+

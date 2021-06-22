@@ -6,14 +6,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
 REQUIRED_PACKAGES = ["boto3", "pyjwt[crypto]"]
 
 setuptools.setup(
-    name="brighthive_jwt",
+    name="brighthive_jwt_authorization_lib",
     # version="0.0.1",
     author="Brighthive",
     author_email="engineering@brighthive.io",
     description="Brighthive Library for JWT",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    # url="https://github.com/pypa/sampleproject",
+    url="https://github.com/brighthive/brighthive-jwt-authorization-lib",
     # project_urls={
     #     "Bug Tracker": "https://github.com/pypa/sampleproject/issues",
     # },

@@ -9,7 +9,7 @@ class BaseHttpTypeError(Exception):
 
 class TokenIsNotJWT(BaseHttpTypeError):
     """Exception when the provided bearer token is not a JWT.
-    This is indicative that you may be passing the legacy Brighthive bearer token.
+    This is indicative that the application may be passing you the legacy Brighthive bearer token.
     """
     pass
 

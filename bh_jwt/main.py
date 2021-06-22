@@ -69,7 +69,6 @@ class BhJwtValidator(LegacyTokenMixin):
             except jwt.InvalidIssuedAtError:
                 pass  # TODO: raise
 
-
         print('JWT Error: Likely the public key did not work.')
         raise FailedToDecodeJwt(
             http_status_code=400,

@@ -43,15 +43,32 @@ class BhJwtValidator(LegacyTokenMixin):
                     encoded_jwt,
                     key,
                     issuer="brighthive-authserver",
-                    audience="brighthive-permissions-service",
+                    audience="brighthive-permissions-service",  # TODO: get value from entry point
                     algorithms=["RS256"])
 
                 return claims
 
+            # https://pyjwt.readthedocs.io/en/stable/api.html#exceptions
             except jwt.InvalidTokenError:
                 # Public key did not work
                 print('public key did not decode jwt')
                 pass
+
+            except jwt.ExpiredSignatureError:
+                # Signature has expired
+                pass  # TODO: raise
+
+            except jwt.InvalidIssuerError:
+                # issuer="brighthive-authserver", not present
+                pass  # TODO: raise
+
+            except jwt.InvalidAudienceError:
+                # JWT was not meant for me!
+                pass  # TODO: raise
+
+            except jwt.InvalidIssuedAtError:
+                pass  # TODO: raise
+
 
         print('JWT Error: Likely the public key did not work.')
         raise FailedToDecodeJwt(

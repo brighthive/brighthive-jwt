@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 REQUIRED_PACKAGES = ["boto3", "pyjwt[crypto]"]
 
 setuptools.setup(
-    name="brighthive_jwt_authorization_lib",
+    name="bhjwt",
     # version="0.0.1",
     author="Brighthive",
     author_email="engineering@brighthive.io",

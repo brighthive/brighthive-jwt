@@ -1,7 +1,7 @@
-from bh_jwt import create_asserter
-from bh_jwt.assertions import AssertJwt
-from bh_jwt.main import BhJwtValidator, LegacyTokenMixin
-from bh_jwt.exceptions import FailedToDecodeJwt, TokenIsNotJWT
+from src import create_asserter
+from src.assertions import AssertJwt
+from src.main import BhJwtValidator, LegacyTokenMixin
+from src.exceptions import FailedToDecodeJwt, TokenIsNotJWT
 import pytest
 
 

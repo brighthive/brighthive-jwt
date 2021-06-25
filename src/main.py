@@ -1,5 +1,5 @@
-from bh_jwt.exceptions import TokenIsNotJWT, FailedToDecodeJwt
-from bh_jwt.assertions import AssertJwt
+from src.exceptions import TokenIsNotJWT, FailedToDecodeJwt
+from src.assertions import AssertJwt
 import jwt
 
 

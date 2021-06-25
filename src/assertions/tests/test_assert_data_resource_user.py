@@ -1,5 +1,5 @@
-from bh_jwt.assertions.main import AssertJwt
-from bh_jwt.exceptions import AuthorizationError
+from src.assertions.main import AssertJwt
+from src.exceptions import AuthorizationError
 import pytest
 
 # Super Admin claims

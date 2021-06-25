@@ -21,7 +21,8 @@ setuptools.setup(
         "Programming Language :: Python :: 3.8",
         "Operating System :: OS Independent",
     ],
-    packages=setuptools.find_packages(),
+    package_dir={"": "bh_jwt"},
+    packages=setuptools.find_packages(where="bh_jwt"),
     python_requires=">=3.8",
     install_requires=REQUIRED_PACKAGES,
 )

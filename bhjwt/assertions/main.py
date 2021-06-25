@@ -1,4 +1,4 @@
-from src.exceptions import AuthorizationError
+from bhjwt.exceptions import AuthorizationError
 
 
 class AdminAssertions:

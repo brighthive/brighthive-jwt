@@ -14,15 +14,11 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/brighthive/brighthive-jwt-authorization-lib",
-    # project_urls={
-    #     "Bug Tracker": "https://github.com/pypa/sampleproject/issues",
-    # },
     classifiers=[
         "Programming Language :: Python :: 3.8",
         "Operating System :: OS Independent",
     ],
-    package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src"),
+    packages=['bhjwt'],
     python_requires=">=3.8",
     install_requires=REQUIRED_PACKAGES,
 )

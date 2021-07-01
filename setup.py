@@ -7,7 +7,7 @@ REQUIRED_PACKAGES = ["boto3", "pyjwt[crypto]"]
 
 setup(
     name="bhjwt",
-    version="0.0.1",
+    version="0.0.2",
     author="Brighthive",
     # author_email="engineering@brighthive.io",
     # description="Brighthive Library for JWT",

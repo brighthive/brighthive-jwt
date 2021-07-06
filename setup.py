@@ -6,7 +6,7 @@ except ImportError:
 # with open("README.md", "r", encoding="utf-8") as fh:
 #     long_description = fh.read()
 
-REQUIRED_PACKAGES = ["setuptools", "pyjwt[crypto]"]
+REQUIRED_PACKAGES = ["pyjwt[crypto]"]
 
 setup(
     name="bhjwt",

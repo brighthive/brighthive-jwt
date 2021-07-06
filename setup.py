@@ -10,7 +10,7 @@ REQUIRED_PACKAGES = ["pyjwt[crypto]"]
 
 setup(
     name="bhjwt",
-    version="0.0.3",
+    version="0.0.4",
     author="Brighthive",
     # author_email="engineering@brighthive.io",
     # description="Brighthive Library for JWT",

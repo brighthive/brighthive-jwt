@@ -21,7 +21,7 @@ setup(
     #     "Programming Language :: Python :: 3.8",
     #     "Operating System :: OS Independent",
     # ],
-    packages=find_packages(),
+    packages=["bhjwt", "bhjwt.assertions"],
     # python_requires=">=3.8",
     install_requires=REQUIRED_PACKAGES,
 )

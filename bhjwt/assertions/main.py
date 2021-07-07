@@ -7,7 +7,7 @@ class AdminAssertions:
         self.assertions.append(assertion)
 
 
-class DataResourceRoleAssertions:
+class DataResourceAssertions:
     def _is_data_resource_role_of(self, data_resource_id: str, role: str) -> None:
         assertion = "brighthive-data-resource-claims" in self.claims and self.claims[
             "brighthive-data-resource-claims"].get(data_resource_id) is not None and \
@@ -21,8 +21,25 @@ class DataResourceRoleAssertions:
     def is_data_resource_user_of(self, data_resource_id):
         self._is_data_resource_role_of(data_resource_id, "user")
 
+    def _has_permission_to_data_resource(self, data_resource_id: str, permission: str) -> None:
+        data_resource_claim = self.claims["brighthive-data-resource-claims"].get(data_resource_id)
+        data_perm = f"data:{permission.lower()}"
+        assertion = ("brighthive-data-resource-claims" in self.claims and
+                     data_resource_claim is not None and
+                     data_perm in data_resource_claim.get("permissions", []))
+        self.assertions.append(assertion)
 
-class AssertJwt(AdminAssertions, DataResourceRoleAssertions):
+    def has_edit_to_data_resource(self, data_resource_id):
+        self._has_permission_to_data_resource(data_resource_id, "edit")
+
+    def has_view_to_data_resource(self, data_resource_id):
+        self._has_permission_to_data_resource(data_resource_id, "view")
+
+    def has_download_to_data_resource(self, data_resource_id):
+        self._has_permission_to_data_resource(data_resource_id, "download")
+
+
+class AssertJwt(AdminAssertions, DataResourceAssertions):
     def __init__(self, claims):
         self._claims = claims
         self.assertions = []

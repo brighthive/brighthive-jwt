@@ -6,11 +6,11 @@ except ImportError:
 # with open("README.md", "r", encoding="utf-8") as fh:
 #     long_description = fh.read()
 
-REQUIRED_PACKAGES = ["pyjwt[crypto]"]
+REQUIRED_PACKAGES = ["pyjwt[crypto]", "requests", "flask"]
 
 setup(
     name="bhjwt",
-    version="0.0.4-alpha.3",
+    version="0.0.4-alpha.4",
     author="Brighthive",
     # author_email="engineering@brighthive.io",
     # description="Brighthive Library for JWT",

@@ -1,7 +1,4 @@
-try:
-    from setuptools import setup, find_packages
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
 
 # with open("README.md", "r", encoding="utf-8") as fh:
 #     long_description = fh.read()
@@ -21,7 +18,8 @@ setup(
     #     "Programming Language :: Python :: 3.8",
     #     "Operating System :: OS Independent",
     # ],
-    packages=["bhjwt", "bhjwt.assertions"],
+    # packages=["bhjwt", "bhjwt.assertions"],
+    packages=find_packages(),
     # python_requires=">=3.8",
     install_requires=REQUIRED_PACKAGES,
 )

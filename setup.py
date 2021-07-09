@@ -7,7 +7,7 @@ REQUIRED_PACKAGES = ["pyjwt[crypto]", "requests", "flask"]
 
 setup(
     name="bhjwt",
-    version="0.0.4-alpha.4",
+    version="0.0.4-alpha.5",
     author="Brighthive",
     # author_email="engineering@brighthive.io",
     # description="Brighthive Library for JWT",

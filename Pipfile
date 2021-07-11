@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [scripts]
-format = "pipenv run autopep8 . --recursive --in-place --pep8-passes 2000 --verbose"
 
 [packages]
 requests = "*"
@@ -13,8 +12,11 @@ pyjwt = {extras = ["crypto"], version = "*"}
 
 [dev-packages]
 pytest = "*"
-autopep8 = "*"
 setuptools = "*"
+black = "*"
 
 [requires]
 python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true

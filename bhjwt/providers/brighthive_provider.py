@@ -7,6 +7,7 @@ Implementation of a BrightHive OAuth 2.0 Provier.
 import requests
 import json
 from bhjwt.providers import OAuth2Provider, OAuth2ProviderError
+from bhjwt.main import create_asserter
 
 
 class BrightHiveProvider(OAuth2Provider):
@@ -20,15 +21,18 @@ class BrightHiveProvider(OAuth2Provider):
             token = self.get_token()
 
         try:
-            headers = {'content-type': 'application/json'}
-            validate_ep = f'{self.base_url}/oauth/validate'
-            payload = {'token': token}
-            query = requests.post(
-                validate_ep, data=json.dumps(payload), headers=headers)
-            resp = query.json()
-            if resp['messages']['valid']:
-                return True
-            else:
-                raise OAuth2ProviderError('Access Denied')
+            # headers = {'content-type': 'application/json'}
+            # validate_ep = f'{self.base_url}/oauth/validate'
+            # payload = {'token': token}
+            # query = requests.post(
+            #     validate_ep, data=json.dumps(payload), headers=headers)
+            # resp = query.json()
+            # if resp['messages']['valid']:
+            #     return True
+            try:
+                asserter = create_asserter(token)
+            except Exception:
+                raise OAuth2ProviderError("Access Denied")
+            return asserter
         except Exception:
-            raise OAuth2ProviderError('Access Denied')
+            raise OAuth2ProviderError("Access Denied")

@@ -33,6 +33,6 @@ class BrightHiveProvider(OAuth2Provider):
                 asserter = create_asserter(token)
             except Exception:
                 raise OAuth2ProviderError("Access Denied")
-            return asserter.claims
+            return asserter
         except Exception:
             raise OAuth2ProviderError("Access Denied")

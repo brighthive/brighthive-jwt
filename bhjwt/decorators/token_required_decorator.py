@@ -14,10 +14,10 @@ def token_required(
         def wrapped_f(*args, **kwargs):
             # if provider.validate_token(scopes=scopes):
             #     return f(*args, **kwargs)
-            claims = provider.validate_token(scopes=scopes)
-            if claims:
+            asserter = provider.validate_token(scopes=scopes)
+            if asserter:
                 if api_type == "graphql":
-                    kwargs["info"].context.jwt_claims = claims
+                    kwargs["info"].context.asserter = asserter
                     return f(*args, **kwargs)
 
         return wrapped_f

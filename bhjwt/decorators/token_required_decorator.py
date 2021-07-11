@@ -17,7 +17,7 @@ def token_required(
             asserter = provider.validate_token(scopes=scopes)
             if asserter:
                 if api_type == "graphql":
-                    kwargs["info"].context.jwt_claims = asserter.claims
+                    kwargs["info"].context.jwt_claims = asserter
                     return f(*args, **kwargs)
 
         return wrapped_f

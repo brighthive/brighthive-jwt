@@ -86,7 +86,7 @@ class BhJwtValidator(LegacyTokenMixin):
         )
 
 
-def create_asserter(token: str) -> AssertJwt:
-    validated_claims = BhJwtValidator(token).validated_claims
+def create_asserter(token: str, public_keys: list) -> AssertJwt:
+    validated_claims = BhJwtValidator(token, public_keys).validated_claims
     asserter = AssertJwt(validated_claims)
     return asserter

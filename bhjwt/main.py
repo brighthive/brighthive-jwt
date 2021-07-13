@@ -46,7 +46,7 @@ class BhJwtValidator(LegacyTokenMixin):
     @staticmethod
     def _decode_jwt(encoded_jwt, public_keys: list) -> dict:
         public_keys = PublicKeys(public_keys)
-        for key in PublicKeys.public_keys:
+        for key in public_keys.public_keys:
             try:
                 claims = jwt.decode(
                     encoded_jwt,

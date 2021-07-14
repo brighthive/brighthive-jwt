@@ -27,7 +27,7 @@ class DataResourceAssertions:
             "brighthive-data-resource-claims" in self.claims
             and self.claims["brighthive-data-resource-claims"].get(data_resource_id)
             is not None
-            and permission
+            and data_perm
             in self.claims["brighthive-data-resource-claims"]
             .get(data_resource_id)
             .get("permissions", [])

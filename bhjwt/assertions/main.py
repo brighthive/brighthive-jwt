@@ -36,15 +36,11 @@ class DataResourceAssertions:
     def _has_permission_to_data_resource(
         self, data_resource_id: str, permission: str
     ) -> bool:
-        data_resource_claim = self.claims["brighthive-data-resource-claims"].get(
-            data_resource_id
-        )
-        data_perm = f"data:{permission.lower()}"
         assertion = (
             "brighthive-data-resource-claims" in self.claims
             and self.claims["brighthive-data-resource-claims"].get(data_resource_id)
             is not None
-            and data_perm
+            and permission
             in self.claims["brighthive-data-resource-claims"]
             .get(data_resource_id)
             .get("permissions", [])
@@ -53,15 +49,37 @@ class DataResourceAssertions:
         return assertion
 
     def has_edit_to_data_resource(self, data_resource_id) -> bool:
-        assertion = self._has_permission_to_data_resource(data_resource_id, "edit")
+
+        assertion = self._has_permission_to_data_resource(data_resource_id, "data:edit")
         return assertion
 
     def has_view_to_data_resource(self, data_resource_id) -> bool:
-        assertion = self._has_permission_to_data_resource(data_resource_id, "view")
+        assertion = self._has_permission_to_data_resource(data_resource_id, "data:view")
         return assertion
 
     def has_download_to_data_resource(self, data_resource_id) -> bool:
-        assertion = self._has_permission_to_data_resource(data_resource_id, "download")
+        assertion = self._has_permission_to_data_resource(
+            data_resource_id, "data:download"
+        )
+        return assertion
+
+    def has_edit_to_data_dictionary(self, data_resource_id) -> bool:
+
+        assertion = self._has_permission_to_data_resource(
+            data_resource_id, "data-dict:edit"
+        )
+        return assertion
+
+    def has_view_to_data_dictionary(self, data_resource_id) -> bool:
+        assertion = self._has_permission_to_data_resource(
+            data_resource_id, "data-dict:view"
+        )
+        return assertion
+
+    def has_download_to_data_dictionary(self, data_resource_id) -> bool:
+        assertion = self._has_permission_to_data_resource(
+            data_resource_id, "data-dict:download"
+        )
         return assertion
 
     def _get_data_resources_with_permission(self, permission: str) -> list:

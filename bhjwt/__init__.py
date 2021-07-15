@@ -6,4 +6,5 @@ from bhjwt.providers import (
     OAuth2ProviderFactory,
     OAuth2ProviderError,
 )
+from bhjwt.exceptions import AuthorizationError
 from bhjwt.decorators.token_required_decorator import token_required

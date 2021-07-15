@@ -33,6 +33,19 @@ class DataResourceAssertions:
         assertion = self._is_data_resource_role_of(data_resource_id, "user")
         return assertion
 
+    def _get_data_resources_with_role_access(self, role: str) -> set:
+        data_resources = set()
+        if "brighthive-data-resource-claims" in self.claims:
+            data_resource_claims = self.claims["brighthive-data-resource-claims"]
+            for data_resource_id, claim in data_resource_claims.items():
+                if role.lower() == claim.get("role"):
+                    data_resources.add(data_resource_id)
+        return data_resources
+
+    def get_data_resources_with_admin_access(self) -> set:
+        data_resources = self._get_data_resources_with_role_access("admin")
+        return data_resources
+
     def _has_permission_to_data_resource(
         self, data_resource_id: str, permission: str
     ) -> bool:
@@ -82,25 +95,25 @@ class DataResourceAssertions:
         )
         return assertion
 
-    def _get_data_resources_with_permission(self, permission: str) -> list:
-        data_resources = []
+    def _get_data_resources_with_permission(self, permission: str) -> set:
+        data_resources = set()
         if "brighthive-data-resource-claims" in self.claims:
             data_resource_claims = self.claims["brighthive-data-resource-claims"]
             data_perm = f"data:{permission.lower()}"
-            for data_resource_id, permissions in data_resource_claims.items():
-                if data_perm in permissions:
-                    data_resources.append(data_resource_id)
+            for data_resource_id, claim in data_resource_claims.items():
+                if data_perm in claim.get("permissions", []):
+                    data_resources.add(data_resource_id)
         return data_resources
 
-    def get_data_resources_with_view_permission(self) -> list:
+    def get_data_resources_with_view_permission(self) -> set:
         data_resources = self._get_data_resources_with_permission("view")
         return data_resources
 
-    def get_data_resources_with_edit_permission(self) -> list:
+    def get_data_resources_with_edit_permission(self) -> set:
         data_resources = self._get_data_resources_with_permission("edit")
         return data_resources
 
-    def get_data_resources_with_download_permission(self) -> list:
+    def get_data_resources_with_download_permission(self) -> set:
         data_resources = self._get_data_resources_with_permission("download")
         return data_resources
 

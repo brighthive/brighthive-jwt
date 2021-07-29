@@ -52,7 +52,8 @@ class BhJwtValidator(LegacyTokenMixin):
                     encoded_jwt,
                     key,
                     issuer="brighthive-authserver",
-                    audience="brighthive-permissions-service",  # TODO: get value from entry point
+                    # TODO: get value from entry point
+                    audience="brighthive-permissions-service",
                     algorithms=["RS256"],
                 )
 

@@ -1,6 +1,6 @@
 from bhjwt.main import create_asserter, PublicKeys
 from bhjwt.assertions import AssertJwt
-from bhjwt.exceptions import FailedToDecodeJwt
+from bhjwt.exceptions import FailedToDecodeJwt, AuthorizationError
 from bhjwt.config import AuthLibConfiguration
 from bhjwt.providers import (
     BrightHiveProvider,

@@ -14,6 +14,7 @@ def token_required(
         def wrapped_f(*args, **kwargs):
             # if provider.validate_token(scopes=scopes):
             #     return f(*args, **kwargs)
+            # NOTE: 'scopes' is not currently being utilized. Deprecate?
             asserter = provider.validate_token(scopes=scopes)
             if asserter:
                 if api_type == "graphql":

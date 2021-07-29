@@ -50,6 +50,7 @@ Names and titles of core contributors (including people who did not push code to
 
 ```
 * Logan Ripplinger (Software Engineer)
+* Si Young Byun (Software Engineer)
 ```
 
 ## License
